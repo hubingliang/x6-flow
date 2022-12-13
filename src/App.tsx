@@ -13,7 +13,8 @@ Graph.registerConnector("flow", flow, true);
 
 const App = () => {
   let container: any = null;
-  const drawX6 = () => {
+
+  useEffect(() => {
     const graph = new Graph({
       container: container,
       grid: true,
@@ -100,25 +101,7 @@ const App = () => {
         },
       },
     });
-    // graph.addEdge({
-    //   source: rect1,
-    //   target: rect2,
-    //   vertices: [
-    //     { x: 100, y: 200 },
-    //     { x: 300, y: 120 },
-    //   ],
-    //   connector: {
-    //     name: "smooth",
-    //     args: {
-    //       spread: 16,
-    //     },
-    //   },
-    // });
-  };
-
-  useEffect(() => {
-    drawX6();
-  }, [drawX6]);
+  }, []);
 
   const refContainer = (_container: HTMLDivElement) => {
     container = _container;

@@ -20,7 +20,7 @@ const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
 function Flow() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
+  console.log(setNodes)
   const onConnect = useCallback(
     (params: any) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
