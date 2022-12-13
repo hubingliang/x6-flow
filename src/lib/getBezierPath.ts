@@ -109,16 +109,16 @@ export interface GetBezierPathParams {
       y2: sourceY,
       c: curvature
     });
-    const [labelX, labelY, offsetX, offsetY] = getBezierEdgeCenter({
-      sourceX,
-      sourceY,
-      targetX,
-      targetY,
-      sourceControlX,
-      sourceControlY,
-      targetControlX,
-      targetControlY
-    });
+    // const [labelX, labelY, offsetX, offsetY] = getBezierEdgeCenter({
+    //   sourceX,
+    //   sourceY,
+    //   targetX,
+    //   targetY,
+    //   sourceControlX,
+    //   sourceControlY,
+    //   targetControlX,
+    //   targetControlY
+    // });
   
     return `M${sourceX},${sourceY} C${sourceControlX},${sourceControlY} ${targetControlX},${targetControlY} ${targetX},${targetY}`;
   }

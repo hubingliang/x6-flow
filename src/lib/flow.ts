@@ -1,4 +1,3 @@
-import { Curve, Path } from "@antv/x6";
 import { Connector } from "@antv/x6/lib/registry";
 import { getBezierPath, Position } from "./getBezierPath";
 
