@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Graph, Path, Point } from "@antv/x6";
+import React, { useEffect } from "react";
+import { Graph } from "@antv/x6";
 import "./App.css";
-import ReactFlow from "reactflow";
 import "reactflow/dist/style.css";
 import { flow } from "./lib/flow";
 import FlowCase from "./Flow";
@@ -14,9 +13,6 @@ Graph.registerConnector("flow", flow, true);
 
 const App = () => {
   let container: any = null;
-  useEffect(() => {
-    drawX6();
-  }, []);
   const drawX6 = () => {
     const graph = new Graph({
       container: container,
@@ -119,6 +115,10 @@ const App = () => {
     //   },
     // });
   };
+
+  useEffect(() => {
+    drawX6();
+  }, [drawX6]);
 
   const refContainer = (_container: HTMLDivElement) => {
     container = _container;
