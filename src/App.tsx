@@ -101,7 +101,7 @@ const App = () => {
         },
       },
     });
-  }, []);
+  }, [container]);
 
   const refContainer = (_container: HTMLDivElement) => {
     container = _container;
