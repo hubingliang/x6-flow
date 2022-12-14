@@ -18,6 +18,14 @@ const App = () => {
     const graph = new Graph({
       container: container,
       grid: true,
+      connecting: {
+        anchor: {
+          name: "midSide",
+          args: {
+            // rotate: true,
+          },
+        },
+      },
     });
     const rect1 = graph.addNode({
       x: 30,
@@ -68,15 +76,13 @@ const App = () => {
         },
       },
     });
+    console.log("rect5: ", rect5);
     graph.addEdge({
       source: rect1,
       target: rect5,
 
       connector: {
         name: "flow",
-        args: {
-          spread: 16,
-        },
       },
     });
     graph.addEdge({
@@ -85,9 +91,6 @@ const App = () => {
 
       connector: {
         name: "flow",
-        args: {
-          spread: 16,
-        },
       },
     });
     graph.addEdge({
@@ -96,9 +99,6 @@ const App = () => {
 
       connector: {
         name: "flow",
-        args: {
-          spread: 16,
-        },
       },
     });
   }, [container]);

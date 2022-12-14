@@ -11,13 +11,39 @@ export const flow: Connector.Definition<SmoothConnectorOptions> = function (
   routePoints,
   options = {}
 ) {
+  let direction = options.direction;
+  if (!direction) {
+    direction =
+      Math.abs(sourcePoint.x - targetPoint.x) >=
+      Math.abs(sourcePoint.y - targetPoint.y)
+        ? "H"
+        : "V";
+  }
+  const position = {
+    sourcePosition:
+      direction === "H"
+        ? sourcePoint.x - targetPoint.x > 0
+          ? Position.Left
+          : Position.Right
+        : sourcePoint.y - targetPoint.y > 0
+        ? Position.Top
+        : Position.Bottom,
+    targetPosition:
+      direction === "H"
+        ? sourcePoint.x - targetPoint.x > 0
+          ? Position.Right
+          : Position.Left
+        : sourcePoint.y - targetPoint.y > 0
+        ? Position.Bottom
+        : Position.Top,
+  };
   const res = getBezierPath({
     sourceX: sourcePoint.x,
     sourceY: sourcePoint.y,
-    sourcePosition: Position.Bottom,
+    sourcePosition: position.sourcePosition,
     targetX: targetPoint.x,
     targetY: targetPoint.y,
-    targetPosition: Position.Top,
+    targetPosition: position.targetPosition,
   });
   console.log(res);
   return res;
